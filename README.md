@@ -1,1 +1,2 @@
-# UI-To-Code
+Gemini UI Coder
+Experience the future of web development with Gemini UI Coder. This cutting-edge tool transforms UI designs into precise, functional code, revolutionizing how designers and developers work. Using advanced computer vision and machine learning, it captures every detail of your UI—styles, positions, interactions—and generates pixel-perfect HTML and CSS. Say goodbye to manual coding and hello to streamlined, efficient workflows. Elevate your productivity and effortlessly bring your designs to life.
