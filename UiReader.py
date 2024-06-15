@@ -34,7 +34,7 @@ safety_settings = [
 ]
 
 # Model name
-MODEL_NAME = "Gemini UI Coder"
+MODEL_NAME = "gemini-1.5-pro-latest"
 
 # Framework selection (e.g., Tailwind, Bootstrap, etc.)
 framework = "Regular CSS use flex grid etc"  
