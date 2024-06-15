@@ -68,7 +68,7 @@ def main():
     :return: The html code
     :doc-author: Trelent
     """
-    st.title("Gemini 1.5 Pro, UI-Reader👨‍💻 ")
+    st.title("Gemini UI Coder👨‍💻 ")
 
     uploaded_file = st.file_uploader("Choose an image....", type=["jpg", "jpeg", "png"])
 
@@ -87,8 +87,8 @@ def main():
             image.save(temp_image_path, format="JPEG")
 
             # Generate UI description
-            if st.button("Read-UI"):
-                st.write("🧑‍💻Wait looking at your UI...")
+            if st.button("Code UI"):
+                st.write("Wait looking at your UI 🧑‍💻...")
                 prompt = "Describe this UI in accurate details. When you reference a UI element put its name and bounding box in the format: [object name (y_min, x_min, y_max, x_max)]. Also Describe the color of the elements."
                 description = send_message_to_model(prompt, temp_image_path)
                 st.write(description)
@@ -100,13 +100,13 @@ def main():
                 st.write(refined_description)
 
                 # Generate HTML
-                st.write("🛠️ Generating website...")
+                st.write("Generating website 🛠️...")
                 html_prompt = f"Create an HTML file based on the following UI description, using the UI elements described in the previous response. Include {framework} CSS within the HTML file to style the elements. Make sure the colors used are the same as the original UI. The UI needs to be responsive and mobile-first, matching the original UI as closely as possible. Do not include any explanations or comments. Avoid using ```html. and ``` at the end. ONLY return the HTML code with inline CSS. Here is the refined description: {refined_description}"
                 initial_html = send_message_to_model(html_prompt, temp_image_path)
                 st.code(initial_html, language='html')
 
                 # Refine HTML
-                st.write("🔧 Refining website...")
+                st.write("Refining website 🔧...")
                 refine_html_prompt = f"Validate the following HTML code based on the UI description and image and provide a refined version of the HTML code with {framework} CSS that improves accuracy, responsiveness, and adherence to the original design. ONLY return the refined HTML code with inline CSS. Avoid using ```html. and ``` at the end. Here is the initial HTML: {initial_html}"
                 refined_html = send_message_to_model(refine_html_prompt, temp_image_path)
                 st.code(refined_html, language='html')
@@ -120,7 +120,7 @@ def main():
                 st.download_button(label="Download HTML", data=refined_html, file_name="index.html", mime="text/html")
 
                 # Show live preview of the generated website
-                st.write("🌐 Live preview of the generated website:")
+                st.write("Live preview of the generated website 🌐 :")
                 components.html(refined_html, height=600, scrolling=True)
 
                 # Text box for user queries
@@ -133,7 +133,7 @@ def main():
                     st.code(updated_html, language='html')
 
                     # Show live preview of the updated website
-                    st.write("🌐 Live preview of the updated website:")
+                    st.write("Live preview of the updated website 🌐:")
                     components.html(updated_html, height=600, scrolling=True)
 
         except Exception as e:
